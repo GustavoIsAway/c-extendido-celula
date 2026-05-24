@@ -22,7 +22,7 @@ typedef struct {
 
 int main() {
     // VARIÁVEIS
-    int inteiro = 0;                        // 2 bytes (16 bits)
+    int inteiro = 0;                        // 4 bytes (32 bits)
     char caractere = 65;                    // 1 byte (8 bits)
     float ponto_flutuante = 0.2f;           // 4 bytes (32 bits)
     double ponto_flutuante_extendido = 0.4; // 8 bytes (64 bits)
@@ -46,15 +46,16 @@ int main() {
     };
 
     // PONTEIROS E VETORES
-    int vetor[50] = {45, 69, 102, 445};           // Vetor estático
-    // Aloque no espaço do programa (pilha de execução) 50 espaços para inteiros (2 bytes)
-    // Aponte para o começo desse espaço e chame esse ponteiro de vetor
+    int vetor[50] = { 0 };           // Vetor estático
+    // Aloque no espaço do programa (pilha de execução) 50 espaços para inteiros (4 bytes * 50)
+    // Aponte para o começo desse espaço e chame esse ponteiro de "vetor"
     // Inicialize tudo em 0
 
 
     for (int i = 0; i < 50; i++) {
-        printf("%d, ", vetor[i]);    // Leitura out of bounds (fora de alcance)
+        printf("%d, ", vetor[i]);    // Leitura inbounds (dentro de alcance)
     }
+    
 
     int* meuPonteiro = &inteiro;     // Variável que contém endereços
                                      // Endereço da memória de "inteiro"
@@ -76,6 +77,7 @@ int main() {
     printf("Novo Valor A: %d\n", minha_nova_struct.valorA);
     printf("Novo Valor B: %f\n", minha_nova_struct.valorB);
     printf("Novo Valor C: %c\n", minha_nova_struct.valorC);
+    printf("------------------------\n");
     printf("Primeiro Elemento do Vetor: %d\n", *vetor);
     printf("Endereço do Vetor: %p\n", vetor);
 
