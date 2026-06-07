@@ -3,16 +3,17 @@
 
 
 int main() {
-    VetorInt meuVetor;  // De fato tem conteúdo (stack)
     VetorFloat* meuVetorFloat = VectorFloat_init();  // Todo ponteiro tem tamanho igual à palavra da arquitetura (32 bits)
 
     printf("===OPERAÇÕES COM VECTORINT===\n");
-    VectorInt_print(&meuVetor);
-    VectorInt_push_back(&meuVetor, 12);
-    VectorInt_push_back(&meuVetor, 13);
-    VectorInt_print(&meuVetor);
-    VectorInt_pop_back(&meuVetor);
-    VectorInt_print(&meuVetor);
+    VetorInt* minha_superclasse = VectorFloat_get_super(meuVetorFloat);
+
+    VectorInt_print(minha_superclasse);
+    VectorInt_push_back(minha_superclasse, 12);
+    VectorInt_push_back(minha_superclasse, 13);
+    VectorInt_print(minha_superclasse);
+    VectorInt_pop_back(minha_superclasse);
+    VectorInt_print(minha_superclasse);
 
     printf("===OPERAÇÕES COM VECTORFLOAT===\n");
     VectorFloat_print(meuVetorFloat);
